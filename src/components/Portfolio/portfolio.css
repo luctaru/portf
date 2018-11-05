@@ -1,0 +1,33 @@
+#portfolio{
+    margin: 0px;
+    background-color: #535C56;
+    min-height: 55rem; 
+    font-family: 'Nunito', sans-serif;
+    color: white;
+}
+
+#book_icon{
+    width: 5rem;
+}
+
+h2#portfolio_desc{
+    text-align: center;
+}
+
+.port_btn{    
+    margin: 1rem;
+    border: 0.3rem solid black;
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+
+.port_btn:hover{
+    background-color: black;
+    color: white;
+}
+
+.port_img{
+    width: 20rem;
+    height: 20rem;
+}

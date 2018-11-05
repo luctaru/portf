@@ -1,0 +1,51 @@
+#profile{
+    margin: 0px;
+    margin-top: 5rem;
+    background-color: #CFC8B9;
+    min-height: 55rem; 
+    font-family: 'Nunito', sans-serif;
+    color: black;
+}
+
+#profile_icon{
+    width: 5rem;
+}
+
+#profile_img{
+    width: 30rem;
+    margin-bottom: 1rem;
+    border: 0.3rem solid black;
+    border-radius: 5rem;
+}
+
+#description{
+    text-align: justify;
+    font-size: 3.5rem;
+    border: 0.3rem solid black;
+    padding: 0.3rem;
+
+    border-right-color: #CFC8B9;
+    border-left-color: #CFC8B9;
+}
+
+ul{
+    font-size: 2.5rem;
+}
+
+li{
+    font-size: 2rem;
+}
+
+#curriculum_btn{
+    margin: 2.5rem;
+    margin-left: 8rem;
+    border: 0.3rem solid black;
+    background-color: #CFC8B9;
+    color: black;
+    transition: 0.5s;
+}
+
+#curriculum_btn:hover{
+    background-color: black;
+    color: white;
+}

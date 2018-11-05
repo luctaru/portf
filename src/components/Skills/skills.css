@@ -1,0 +1,30 @@
+#skills{
+    margin: 0px;
+    min-height: 55rem;
+    background-color: #ADA89C;
+    font-family: 'Nunito', sans-serif;
+    color: black;
+}
+
+#wrench_icon{
+    width: 5rem;
+}
+
+ul{
+
+}
+
+li.skills_topic{
+    display:inline;
+    padding: 0.3rem;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    transition: 0.5s;   
+}
+
+li.skills_topic:hover{
+    background-color: black;
+    color: white;
+    border:0.2rem solid black;
+}

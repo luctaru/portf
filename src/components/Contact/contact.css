@@ -1,0 +1,76 @@
+#contact{
+    margin: 0px;
+    margin-top: -20px;
+    background-color: #0F2530;
+    min-height: 55rem; 
+    font-family: 'Nunito', sans-serif;
+    color: white;
+}
+
+#phone_icon{
+    width: 4.5rem;
+}
+
+#form{
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+    align-items: center;
+    flex-shrink: 1;
+}
+
+::placeholder{
+    color: black;
+}
+
+#submit_btn{
+    width: 30rem;
+    border: 0.3rem solid white;
+    background-color: white;
+    color: black;
+    margin: 0.5rem;
+    transition: 0.5s;
+    margin-bottom: 8rem;
+}
+
+#submit_btn:hover{
+    background-color: #0F2530;
+    color: white;
+}
+
+input{
+    color: black;
+    margin: 0.5rem;
+    width: 30em;
+    height: 4.5rem;
+}
+
+textarea{
+    width: 30em;
+    color: black;
+    margin: 0.5rem;
+    height: 10rem;
+}
+
+#github_icon{
+    width: 13rem;
+    margin: -2.5rem;
+}
+
+#facebook_icon{
+    width: 8rem;
+}
+
+#git_col{
+    text-align: center;
+
+}
+
+#fb_col{
+    text-align: center;
+}
+
+#social_row{
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+}

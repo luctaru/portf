@@ -1,0 +1,9 @@
+#footer{
+    margin: 0px;
+    background-color: #000000;
+    min-height: 10rem; 
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    text-align: center;
+    margin-top: 3.5rem;
+}
