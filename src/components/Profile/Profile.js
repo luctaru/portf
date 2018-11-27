@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+
 import { Grid, Row, Col, Button, ButtonToolbar } from 'react-bootstrap';
 import './profile.css'
 import profile_icon from '../../images/profile-icon.svg';
@@ -6,72 +7,114 @@ import profile_img from '../../images/profile-img.svg';
 import curriculum from '../../documents/curriculum.pdf';
 
 class Profile extends Component {
-    state = [
-        {
-            name: 'INTERESSES',
-            itens: ['Bioinformática', 'Desenvolvimento Web', 'Design de Games', 'Teste de Software']
-        },
 
-        {
-            name: 'IDIOMAS',
-            itens: ['Português(Nativo)', 'Inglês(Avançado)', 'Japonês(Básico)']
-        },
+    constructor(props) {
+        super(props);
+    }
 
-        {
-            name: 'FORMAÇÃO',
-            itens: ['2013/Anglo - Ensino Médio']
-        },
-
-        {
-            name: 'ATIVIDADES',
-            itens: ['Graduando em Engenharia de Software']
-        }
-    ]
-
-    showDetails = () => {
-        const state = this.state;
-        
-        const listNames = state.map((item) =>
-            <ul>{item.name}
-                {
-                    item.itens.map((li)=>
-                        <li>{li}</li>
-                    )
-                }
-            </ul>
+    showInt = () => {
+        const list = this.props.prof[0].map(e =>
+            <li>{e}</li>
         );
+        console.log(list)
         return (
-            <Col xs={12} md={4}>{listNames}</Col>
+            <ul>Interesses{list}</ul>
+        );
+    }
+
+    showIdio = () => {
+        const list = this.props.prof[1].map(e =>
+            <li>{e}</li>
+        );
+        console.log(list)
+        return (
+            <ul>Idiomas{list}</ul>
+        );
+    }
+
+    showForm = () => {
+        const list = this.props.prof[2].map(e =>
+            <li>{e}</li>
+        );
+        console.log(list)
+        return (
+            <ul>Formação{list}</ul>
+        );
+    }
+
+    showAtiv = () => {
+        const list = this.props.prof[3].map(e =>
+            <li>{e}</li>
+        );
+        console.log(list)
+        return (
+            <ul>Atividades{list}</ul>
+        );
+    }
+
+    showMini = () => {
+        console.log('MINI')
+        console.log(this.props.prof[4])
+        const desc = this.props.prof[4].map(element => <p id="description">{element.minibio}</p>);
+        console.log(desc)
+        return (
+            <Col xsHidden md={4}>
+                {desc}
+            </Col>
+        );
+
+    }
+
+    showPhotoCurri = () => {
+        //const str = '../../images/';
+        const part = this.props.prof[4].slice(0, 1);
+        const item = part.map(e =>
+            <Fragment>
+                <img id="profile_img" src={require(`../../images/${e.foto}`)} />
+                <ButtonToolbar>
+                    <Button id="curriculum_btn" bsSize="large" href={require(`../../documents/${e.curri}`)} target="_blank">Meu currículo</Button>
+                </ButtonToolbar>
+            </Fragment>
+        );
+        console.log('FOTO')
+        console.log(item)
+        return (
+            <Col xs={12} md={4}>
+                {item}
+            </Col>
         );
     }
 
     render() {
-        return (
-            <div id="profile">
+        if (this.props.prof === undefined) {
+            return (<h1>Carregando</h1>);
+        }
+        else {
+            return (
+                <div id="profile">
 
-                <Grid>
-                    <Row className="show-grid">
-                        <Col xs={12} md={8}>
-                            <h1>Perfil<img id="profile_icon" src={profile_icon} /></h1>
+                    <Grid>
+                        <Row className="show-grid">
+                            <Col xs={12} md={8}>
+                                <h1>Perfil<img id="profile_icon" src={profile_icon} /></h1>
+                            </Col>
+                        </Row>
 
-                        </Col>
-                    </Row>
+                        <Row className="show-grid">
+                            {this.showPhotoCurri()}
+                            {this.showMini()}
+                            <Col xs={12} md={4}>
+                                {this.showInt()}
+                                {this.showIdio()}
+                                {this.showForm()}
+                                {this.showAtiv()}
+                            </Col>
 
-                    <Row className="show-grid">
-                        <Col xs={12} md={4}>
-                            <img id="profile_img" src={profile_img} />
-                            <ButtonToolbar>
-                                <Button id="curriculum_btn" bsSize="large" href={curriculum} target="_blank">Meu currículo</Button>
-                            </ButtonToolbar>
-                        </Col>
-                        <Col xsHidden md={4}>
-                            <p id="description">Olá, meu nome é Lucas Tarumoto, nasci no Japão e atualmente moro no Brasil</p>
-                        </Col>
-                        {this.showDetails()}
-                    </Row>
-                </Grid>
-            </div>
-        );
+                        </Row>
+                    </Grid>
+                </div>
+            );
+        }
     }
 
 }

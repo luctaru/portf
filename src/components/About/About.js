@@ -6,31 +6,29 @@ import profile_img from '../../images/profile-img.svg';
 import curriculum from '../../documents/curriculum.pdf';
 
 class About extends Component {
-    state = [
-        {
-            name: 'BIOGRAFIA',
-            desc: 'Nascido no Japão, vivi poucos anos lá e acabei me mudando para o Brasil quando jovem. Realizei o Ensino Médio no Colégio Prisma de Pirapózinho. Iniciei minha vida universitária em 2014 na UFSJ de Ouro Branco em Minas Gerais, porém acabei desistindo por não ter afinidade com o curso. Em seguida iniciei em 2016 na UTFPR de Cornélio Procópio no curso de Engenharia de Software onde estou até hoje na graduação.'
-        },
+    constructor(props) {
+        super(props);
+    }
 
-        {
-            name: 'PROFISSÃO',
-            desc: 'Foi por acaso que acabei entrando em contato com a profissão. Na época do vestibular não sabia que caminho seguir, primeiramente acabei fazendo Engenharia de Bioprocessos, em seguida queria fazer Engenharia Eletrônica, contudo minha nota do ENEM não era alta o suficiente e para não perder tempo entrei em Engenharia de Software. Por ironia do destino o curso me agradou muito e hoje estou aqui!'
-        }
-    ]
-
-    showDetails = () => {
-        const state = this.state;
-        
-        const listItems = state.map((item) =>
+    showDetails = () => {      
+        const listBio = this.props.info.map((item) =>
             <Col xs={12} md={6}>
                 <div className="details_container">
-                    <p className="post_desc">{item.name}</p>
+                    <p className="post_desc">BIOGRAFIA</p>
+                    <p className="post_desc">{item.bio}</p>
+                </div>
+            </Col>
+        );
+        const listDesc = this.props.info.map((item) =>
+            <Col xs={12} md={6}>
+                <div className="details_container">
+                    <p className="post_desc">PROFISSÃO</p>
                     <p className="post_desc">{item.desc}</p>
                 </div>
             </Col>
         );
         return (
-            <Row className="show-grid">{listItems}</Row>
+            <Row className="show-grid">{listBio}{listDesc}</Row>
         );
     }
 
